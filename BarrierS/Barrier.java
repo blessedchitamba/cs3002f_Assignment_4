@@ -22,20 +22,18 @@ public class Barrier {
       try {
          //acquire the semaphore and increment the counter. Critical section
          sem.acquire();
-         if(counter != size) {release = false;}
+         if(counter < size) {release = false;}
          counter++;
          sem.release();
          
          //check if all the threads have arrived
          if(counter == size) {
-            counter = 0;  //reset counter to 0
+            //counter = 0;  //reset counter to 0
             release = true;
          }
          //else just wait in a spin loop and set release = true only after counter == size
-         else {
-            while(!release) {
-               //do nothing...
-            }
+         while(!release) {
+            //do nothing...
          }
       } 
       catch (InterruptedException ex) {
