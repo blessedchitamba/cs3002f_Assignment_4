@@ -3,7 +3,7 @@ import java.util.concurrent.Semaphore;
 import java.util.ArrayList;
 
 public class WetDishRack {
-	// add variables
+	// variables
    private int rackSize;
    private int removedDish;
    Semaphore mutex;
@@ -12,7 +12,6 @@ public class WetDishRack {
    ArrayList<Integer> rack;
 
 	WetDishRack(int rackSize) {
-	    // add correct code here
        mutex = new Semaphore(1);
        full = new Semaphore(0);
        empty = new Semaphore(rackSize);
@@ -21,7 +20,6 @@ public class WetDishRack {
 	}
 	
 	public void addDish(int dish_id)  throws InterruptedException {
-		// add correct code here
       //wait on the empty semaphore and only add a dish once a free spot exists
       //also wait on the mutex to ensure only one thread changes the rack
       try{
