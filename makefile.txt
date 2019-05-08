@@ -1,0 +1,13 @@
+# Operating Systems Assignment 2 part 3 makefile
+# Blessed Chitamba
+# May 2019
+
+default:
+        javac ./molecule/*.java
+
+run:
+        java molecule.RunSimulation 12 3
+
+clean:
+        rm ./molecule/*.class
+
